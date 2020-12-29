@@ -25,11 +25,8 @@ public class Lecture11 {
   @Test
   public void joiningStringsWithStream() throws Exception {
     List<String> names = ImmutableList.of("anna", "john", "marcos", "helena", "yasmin");
+    String result=names.stream().map(str->str).collect(Collectors.joining(","));
 
-    String join = names.stream()
-        .map(String::toUpperCase)
-        .collect(Collectors.joining("|"));
-
-    System.out.println(join);
+    System.out.println(result);
   }
 }

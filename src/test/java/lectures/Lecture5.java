@@ -17,9 +17,9 @@ public class Lecture5 {
 
   @Test
   public void understandingFilter() throws Exception {
-    ImmutableList<Car> cars = MockData.getCars();
+List<Car> cars = MockData.getCars();
 
-    final Predicate<Car> carPredicate = car -> car.getPrice() < 20000;
+    Predicate<Car> carPredicate = car -> car.getPrice() < 20000;
 
     List<Car> carsFiltered = cars.stream()
         .filter(carPredicate)
@@ -36,8 +36,9 @@ public class Lecture5 {
     List<Person> people = MockData.getPeople();
 
     List<PersonDTO> dtos = people.stream()
-        .map(PersonDTO::map)
-        .collect(Collectors.toList());
+        .map(p->{
+          return new PersonDTO(p.getId(),p.getFirstName(), p.getAge());
+        }).collect(Collectors.toList());
 
     dtos.forEach(System.out::println);
 
@@ -59,7 +60,8 @@ public class Lecture5 {
 
   @Test
   public void test() throws Exception {
-    MockData.getCars().forEach(System.out::println);
+   Double avg= MockData.getCars().stream().mapToDouble(car ->car.getPrice()).average().orElse(0);
+   System.out.println(avg);
   }
 }
 

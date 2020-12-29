@@ -1,5 +1,8 @@
 package beans;
 
+import java.util.List;
+import java.util.stream.Collector;
+
 public class PersonDTO {
 
   private final Integer id;
@@ -37,4 +40,6 @@ public class PersonDTO {
   public static PersonDTO map(Person person) {
     return new PersonDTO(person.getId(), person.getFirstName(), person.getAge());
   }
+
+
 }

@@ -15,22 +15,21 @@ import org.apache.commons.io.IOUtils;
 
 public class MockData {
 
-  public static ImmutableList<Person> getPeople() throws IOException {
+  public static List<Person> getPeople() throws IOException {
     InputStream inputStream = Resources.getResource("people.json").openStream();
     String json = IOUtils.toString(inputStream);
-    Type listType = new TypeToken<ArrayList<Person>>() {
-    }.getType();
+    Type listType = new TypeToken<ArrayList<Person>>() {}.getType();
     List<Person> people = new Gson().fromJson(json, listType);
-    return ImmutableList.copyOf(people);
+    return people;
   }
 
-  public static ImmutableList<Car> getCars() throws IOException {
+  public static List<Car> getCars() throws IOException {
     InputStream inputStream = Resources.getResource("cars.json").openStream();
     String json = IOUtils.toString(inputStream);
     Type listType = new TypeToken<ArrayList<Car>>() {
     }.getType();
     List<Car> cars = new Gson().fromJson(json, listType);
-    return ImmutableList.copyOf(cars);
+    return cars;
   }
 
 }

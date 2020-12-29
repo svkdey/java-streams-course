@@ -12,7 +12,7 @@ public class Lecture10 {
 
   private static final List<ArrayList<String>> arrayListOfNames = Lists.newArrayList(
       Lists.newArrayList("Mariam", "Alex", "Ismail"),
-      Lists.newArrayList("John", "Alesha", "Andre"),
+      Lists.newArrayList("John", "Alex", "Andre"),
       Lists.newArrayList("Susy", "Ali")
   );
 
@@ -42,7 +42,7 @@ public class Lecture10 {
 //   [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
 
     List<String> names = arrayListOfNames.stream()
-        .flatMap(List::stream)
+        .flatMap(strings -> strings.stream())
         .collect(Collectors.toList());
 
     System.out.println(names);
